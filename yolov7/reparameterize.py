@@ -12,7 +12,7 @@ target = '/content/yolov7/best_Reparameterize.pt'
 
 device = select_device('0', batch_size=1)
 # model trained by cfg/training/*.yaml
-ckpt = torch.load(weights, map_location=device)
+ckpt = torch.load(weights, map_location=device, weights_only=False)
 # reparameterized model in cfg/deploy/*.yaml
 model = Model(custom_yaml, ch=3, nc=class_num).to(device)
 
